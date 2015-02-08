@@ -1,0 +1,60 @@
+
+
+.section-user-updates {
+	padding: 20px 0 20px 20px;
+	overflow: hidden;
+	
+	.user-post {
+		overflow: hidden;
+		float: left;
+		position: relative;
+		padding: 10px;
+		width: 25%;
+		text-align: center;
+		border-right: 1px solid @border-color;
+		.user-image {
+			width: 45px;
+			height: 45px;
+			.rounded(50%);
+			margin: auto;
+			display: inline-block;
+		}
+		.user-name {
+			font-weight: bold;
+			font-size: 12px;
+			margin-bottom: 10px;
+		}
+		.user-content {
+			float: left;
+			text-align: left;
+			font-size: 11px;
+		}
+		.user-link {
+			.absolute();
+		}
+		
+		&:last-child {
+			border-right: none;
+		}
+		
+		@media (max-width: @content-width-smallest) {
+			width: 100%;
+			float: none;
+			border-right: none;
+			border-bottom: 1px solid @border-color;
+			text-align: left;
+			
+			&:last-child {
+				border: none;
+			}
+			
+			.user-image {
+				float: left;
+				margin-right: 10px;
+			}
+			.user-name {
+				line-height: 45px;
+			}
+		}
+	}
+}

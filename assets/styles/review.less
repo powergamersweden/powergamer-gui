@@ -1,0 +1,423 @@
+
+
+.score {
+	float: left;
+	position: relative;
+	.star {
+		float: left;
+		width: 20px;
+		height: 20px;
+		.scale(1.0);
+		
+		&:before {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			font-family: @font-icons;
+			content: "h";
+			color: @dark-color;
+			font-size: 16px;
+		}
+		&.fill:before {
+			content: "g";
+		}
+		&.half:before {
+			content: "i";
+		}
+	}
+	&.empty {
+		.star {
+			&:before {
+				color: rgba(0,0,0,0.2);
+			}
+		}
+	}
+}
+
+.section-user-score {
+	padding: 20px;
+	
+	.score {
+		text-align: center;
+		float: none;
+	}
+	.star {
+		width: 30px;
+		float: none;
+		display: inline-block;
+		
+		&:before {
+			font-size: 28px;
+			left: 0;
+		}
+		
+		&.fill:before {
+			color: @main-color;
+		}
+	}
+}
+
+
+.review-header, .game-header, .video-header {
+	position: relative;
+	overflow: hidden;
+	background: black;
+	max-height: 400px;
+	
+	@media (max-width: @content-width-mobile){
+		max-height: none;
+	}
+	
+	.header-background {
+		.absolute();
+		background-size: cover;
+		background-position: center;
+		.opacity(0.2);
+		.blur(10px);
+	}
+	
+	.header-content {
+		position: relative;
+		z-index: 21;
+		color: white;
+		padding: 50px 20px 70px 20px;
+		max-height: 1000px;
+		
+		h1 {
+			margin: 0;
+			padding: 10px 0 0;
+			max-height: 100px;
+			.opacity(1.0);
+			@media (max-width: @content-width-smallest){
+				font-size: 26px;
+			}
+			@media (max-width: @content-width-mobile){
+				text-align: center;
+				max-height: none;
+			}
+		}
+		
+		h3 {
+			margin: 0;
+			padding: 0 0 10px;
+			max-height: 100px;
+			color: rgba(255,255,255,0.6);
+			@media (max-width: @content-width-mobile){
+				text-align: center;
+			}
+			
+			a {
+				color: rgba(255,255,255,0.6);
+				text-decoration: none;
+				&:hover {
+					color: @main-color;
+				}
+			}
+		}
+		
+		.box-art {
+			.no-select;
+			width: 150px;
+			.rounded(2px);
+			@media (max-width: @content-width-mobile){
+				width: 60%;
+				float: none;
+				margin: 0 auto;
+				display: block;
+			}
+		}
+		.image-replacement {
+			width: 150px;
+			height: 180px;
+			.no-select;
+		}
+		
+		.box-art-wrapper {
+			.no-select;
+			position: relative;
+			overflow: hidden;
+			float: left;
+			margin-right: 40px;
+			
+			&:hover {
+				.button-game-subscribe {
+					.scale(1.4);
+					.opacity(1.0);
+				}
+			}
+		}
+		
+		.button-game-subscribe {
+			.absolute();
+			.rounded(50%);
+			.transition();
+			width: 50px;
+			height: 50px;
+			background: @dark-color;
+			top: 50%;
+			left: 50%;
+			margin-top: -25px;
+			margin-left: -25px;
+			.opacity(0.0);
+			.scale(0.0);
+			cursor: pointer;
+			
+			&:before, &:after {
+				.absolute();
+				content: attr(data-icon);
+				font-family: @font-icons;
+				text-align: center;
+				line-height: 50px;
+				color: white;
+				font-size: 30px;
+				.scale(1.0);
+				.opacity(1.0);
+				.transition(300ms, @easeBounceSmall);
+			}
+			
+			&:after {
+				content: "M";
+				.scale(0.0);
+				.opacity(0.0);
+			}
+			
+			&.is-favorite {
+				&:after {
+					.scale(1.0);
+					.opacity(1.0);
+				}
+				&:before {
+					.scale(0.0);
+					.opacity(0.0);
+				}
+			}	
+		}
+		
+		.review-head {
+			@media (max-width: @content-width-mobile){
+				text-align: center;
+			}
+			.score {
+				float: none;
+				overflow: hidden;
+				@media (max-width: @content-width-mobile){
+					text-align: center;
+					.star {
+						display: inline-block;
+						float: none;
+						&:before {
+							left: 0;
+						}
+					}
+				}
+			}
+		}
+		.review-details {
+			height: auto;
+			max-height: 100px;
+			display: inline-block;
+			
+			@media (max-width: @content-width-mobile){
+				display: block;
+			}
+			
+			h4 {
+				margin: 0;
+				color: rgba(255,255,255,0.5);
+				font-size: 11px;
+				@media (max-width: @content-width-mobile){
+					text-align: center;
+				}
+				
+				a {
+					color: rgba(255,255,255,0.5);
+					text-decoration: none;
+					&:hover {
+						color: @main-color;
+					}
+				}
+			}
+		}
+	}
+	
+	.star {
+		width: 35px;
+		height: 40px;
+		
+		&:before {
+			color: @main-color;	
+			font-size: 30px;
+			.opacity(0.4);
+		}
+		
+		&.fill, &.half {
+			&:before {
+				color: @main-color;	
+				.opacity(1.0);
+			}
+		}
+		
+	}
+	.score.empty {
+		.star {
+			&:before {
+				color: rgba(255,255,255,0.6);
+			}	
+		}
+	}
+	
+	.game-header-menu {
+		height: 36px;
+		left: 0;
+		right: 0;
+		background: @main-color;
+		position: absolute;
+		bottom: 0;
+		
+		a {
+			color: white;
+			text-decoration: none;
+			font-size: 14px;
+			padding: 0 20px;
+			height: 36px;
+			display: block;
+			float: left;
+			line-height: 36px;
+			
+			&.active, &:hover {
+				.transition();
+				background: white;
+				color: @dark-color;
+			}
+		}
+	}
+	
+	&:hover {
+		.button-game-subscribe {
+			.scale(1.0);
+			.opacity(0.6);
+		}
+	}
+}
+
+.game-info {
+	position: relative;
+	background: black;
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+	
+	.game-info-background {
+		.absolute();
+		background-size: cover;
+		background-position: center;
+		.opacity(0.2);
+	}
+	
+	.game-info-content {
+		position: relative;
+		z-index: 21;
+		color: white;
+		padding: 20px 20px 0 20px;
+		p {
+			font-size: 14px;
+		}
+		h2 {
+			font-size: 18px;
+			margin: 10px;
+			a {
+				color: white;
+				text-decoration: none;
+				&:hover {
+					color: @main-color;
+				}
+			}
+		}
+		h3, h4 {
+			font-size: 14px;
+			margin: 0;
+			padding: 0 0 10px;
+			max-height: 100px;
+			color: rgba(255,255,255,0.6);
+			@media (max-width: @content-width-mobile){
+				text-align: center;
+			}
+			
+			a {
+				color: rgba(255,255,255,0.6);
+				text-decoration: none;
+				&:hover {
+					color: @main-color;
+				}
+			}
+		}
+		
+		
+		&.with-title {
+			
+			.game-info-content {
+				padding-top: 0;
+			}
+		}
+	}
+	
+	.box-art, .image-replacement {
+		width: 120px;
+		float: left;
+		margin-right: 30px;
+		.rounded(2px);
+		@media (max-width: @content-width-mobile){
+			width: 60%;
+			float: none;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	.image-replacement {
+		width: 120px;
+		height: 150px;
+	}
+	.game-info-footer {
+		float: none;
+		overflow: hidden;
+		
+		.info-col {
+			float: left;
+			font-size: 12px;
+			padding: 20px 10px 20px;
+			max-width: 25%;
+			
+			a {
+				text-decoration: none;
+				color: white;
+				&:hover {
+					color: @main-color;
+				}
+			}
+		}
+	}
+}
+
+.video-header {
+	max-height: none;
+	
+	.header-content {
+		margin: auto;
+		width: 1050px;
+		padding: 20px 0;
+		max-width: 100%;
+		iframe {
+			display: block;
+		}
+	}
+}
+
+.header-placeholder {
+	height: 250px;
+	width: 100%;
+	display: none;
+	
+	body.fixed-player & {
+		display: block;
+	}
+}

@@ -1,0 +1,59 @@
+
+.section-forum {
+	padding: 0 20px;
+	margin-top: 20px;
+	
+	* {
+		border-spacing: 0;
+	}
+	
+	a {
+		color: @dark-color;
+		text-decoration: none;
+		.transition();
+		
+		&:hover {
+			color: @main-color;
+		}
+	}
+	
+	thead {
+		background: @border-color;
+		td {
+			padding: 10px 10px;
+			padding-left: 0px;
+			font-size: 12px;
+			
+			&:first-child {
+				padding-left: 20px;
+			}
+		}
+	}
+	
+	tbody {
+		td {
+			border-bottom: 1px solid @border-color;
+			padding: 10px 20px;
+			
+			font-size: 16px;
+			
+			&.posts, &.users {
+				font-size: 14px;
+				padding-left: 0;
+			}
+			
+			&.date {
+				font-size: 12px;
+				padding-left: 0;
+				
+				.time {
+					font-size: 10px;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					width: 120px;
+				}
+			}
+		}
+	}
+}

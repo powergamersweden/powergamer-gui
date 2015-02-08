@@ -1,0 +1,61 @@
+.section-text-ad {
+	margin: 20px;
+	padding: 40px 20px 20px;
+	font-size: 13px;
+	border: 1px solid @border-color;
+	position: relative;
+	.tag {
+		color: white;
+		background: @main-color;
+		padding: 5px 10px;
+		display: inline-block;
+		position: absolute;
+		font-size: 10px;
+		top: 0;
+		left: 0;
+	}
+}
+.section-ad-300x250 {
+	margin-top: 20px;
+	width: 300px;
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.section-ad-750x250 {
+	width: 750px;
+	height: 250px;
+	
+	@media (max-width: @content-width) {
+		width: 600px;
+		height: 200px;
+		
+		img {
+			width: 600px;
+			height: 200px;
+		}
+		
+	}
+	@media (max-width: @content-width-small) {
+		width: 100%;
+		height: auto;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.article-list {
+	.section-ad-750x250 {
+		margin-left: -20px;
+		@media (max-width: @content-width-small) {
+			margin-left: 0;
+		}
+	}
+}

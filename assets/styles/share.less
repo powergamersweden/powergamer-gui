@@ -1,0 +1,107 @@
+.share-box {
+	padding: 20px 20px 0;
+	//border: 1px solid @border-color;
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	
+	.button-share {
+		.button.button-small;
+		margin: 0;
+		display: table-cell;
+		float: left;
+		width: 100%;
+		margin-right: 10px;
+		
+		
+		&:last-child {
+			margin-right: 0;
+		}
+		&:before {
+			font-family: @font-icons;
+			font-size: 14px;
+			content: "G";
+			vertical-align: text-bottom;
+			padding-right: 10px;
+		}
+		&.button-share-facebook {
+			.button(#3b5998, "K");
+		}
+		&.button-share-twitter {
+			.button(#55acee, "n");
+		}
+		&.button-share-google {
+			.button(#d34836, "F");
+		}
+		&.button-share-pusha {
+			.button(#0072b8, "q");
+			
+			&:before {
+				.rotation(90deg);
+			}
+		}
+		
+		.button(@color, @icon){
+			background: @color;
+			border-bottom-color: darken(@color, 15%);
+			&:before {
+				content: @icon;
+			}
+			&:hover {
+				background: darken(@color, 5%);
+				border-bottom-color: darken(@color, 20%);
+			}
+			&:active {
+				background: darken(@color, 5%);
+				border-bottom-color: darken(@color, 20%);
+			}
+		}
+	}
+	.share-row {
+		display: block;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		width: 48%;
+		float: left;
+		
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	&.minimal {
+		.button-share {
+			position: relative;
+			text-indent: 9999px;
+			width: 45%;
+			&:before {
+				text-indent: 1px;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				text-align: center;
+				right: 0;
+				padding: 0;
+				font-size: 20px;
+				margin-top: -10px;
+			}
+		}
+		.share-row {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.inner-right {
+	.share-box:not(.minimal) {
+		display: block;
+		.share-row {
+			margin-bottom: 10px;
+			margin-left: 0;
+			width: 100%;
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

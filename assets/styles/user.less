@@ -1,0 +1,410 @@
+.user-profile {
+	.user-profile-info {
+		padding: 20px;
+		text-align: center;
+		border-bottom: 1px solid @border-color;
+		
+		.profile-image {
+			width: 150px;
+			.rounded(50%);
+			margin: 0 auto;
+		}
+		.profile-title {
+			font-size: 18px;
+			margin-bottom: 0;
+		}
+		.profile-subtitle {
+			font-size: 14px;
+			position: relative;
+			
+			&:before {
+				margin-right: 5px;
+				content: 'g';
+				font-family: @font-icons;
+				color: @main-color;
+				font-size: 11px;
+				vertical-align: middle;
+			}
+		}
+	}
+	.inner {
+		display: flex;
+		@media (max-width: @content-width-small) {
+			display: block;
+		}
+	}
+	.menu {
+		padding-bottom: 100px;
+		
+		a {
+			display: block;
+			padding: 10px 20px;
+			text-decoration: none;
+			color: @dark-color;
+			position: relative;
+			border-bottom: 1px solid @border-color;
+			bottom: 0;
+			
+			&:before {
+				font-family: @font-icons;
+				padding-right: 15px;
+				vertical-align: middle;
+				font-size: 16px;
+			}
+			
+			&.feed:before {
+				content: "G";
+			}
+			&.games:before {
+				content: "E";
+			}
+			&.messages:before {
+				content: "A";
+			}
+			&.notifications:before {
+				content: "I";
+			}
+			&.settings:before {
+				content: "J";
+			}
+			
+			&[data-number] {
+				&:after {
+					position: absolute;
+					right: 10px;
+					content: attr(data-number);
+					background: @dark-color;
+					padding: 3px 13px;
+					font-size: 11px;
+					.rounded(50px);
+					color: white;
+				}
+			}
+			
+			&.active, &:hover {
+				.transition(100ms);
+				background: @main-color;
+				color: white;
+				&[data-number] {
+					&:after {
+						background: white;
+						color: @dark-color;
+					}
+				}
+			}
+		}
+	}
+}
+.user-activity-create {
+	padding: 20px;
+	border-bottom: 1px solid @border-color;
+	.activity-form-inner {
+		padding: 5px 0 5px 86px;
+	}
+	
+	.author-image {
+		width: 65px;
+		.rounded(50%);
+		float: left;
+	}
+	.post {
+		width: 100%;
+		height: 54px;
+		resize: none;
+		border: 1px solid lighten(@dark-color, 60%);
+		outline: none;
+		padding: 10px;
+		font-size: 14px;
+	}
+	.button {
+		float: right;
+		margin-bottom: 0;
+		margin-top: 10px;
+	}
+}
+.user-activity-feed {
+	padding: 20px;
+	
+	&.display-comments {
+		.activity-comments, .comment-form {
+			display: block !important;
+		}
+	}
+}
+.activity {
+	padding: 20px;
+	border-bottom: 1px solid @border-color;
+	
+	.author-image {
+		width: 66px;
+		.rounded(50%);
+		float: left;
+	}
+	.content {
+		text-align: left;
+		padding-top: 0;
+		padding-right: 0;
+		
+		p {
+			text-align: left;
+		}
+		
+		.author-title {
+			font-weight: bold;
+			
+			a {
+				text-decoration: none;
+				color: black;
+				
+				&:hover {
+					color: @main-color;
+				}
+			}
+			
+			&.premium {
+				&:before {
+					margin-right: 5px;
+					content: 'g';
+					font-family: @font-icons;
+					color: @main-color;
+					font-size: 10px;
+					vertical-align: middle;
+				}
+			}
+		}
+		.author-subtitle {
+			margin: 0 !important;
+			font-size: 10px !important;
+			padding-left: 5px;
+		}
+		.activity-date {
+			float: right;
+		}
+		p {
+			font-size: 12px;
+			padding: 0;
+			margin: 5px 0 10px;
+		}
+		
+		.game-info {
+			background: white;
+			
+			.game-about {
+				padding-top: 20px;
+				a.game-title {
+					text-decoration: none;
+					color: @dark-color;
+					font-weight: bold;
+					
+					&:hover {
+						color: @main-color;
+					}
+				}
+			}
+		}
+	}
+	
+	.toolbar {
+		padding-top: 10px;
+
+		.link {
+			font-size: 10px;
+			text-decoration: none;
+			
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		.right {
+			float: right;
+		}
+	}
+	
+	
+	.activity-comments {
+		display: none;
+		padding: 0;
+		margin: 20px 0 0 0;
+		list-style: none;
+		background: @border-color;
+		
+		.author-image {
+			width: 50px;
+		}
+		
+		li {
+			padding: 20px;
+			border-bottom: 1px solid darken(@border-color, 10%);
+		}
+	}
+	.comment-form {
+		display: none;
+		background: @border-color;
+		padding: 20px;
+		
+		.author-image {
+			width: 50px;
+			margin-right: 20px;
+		}
+		
+		.comment-form-inner {
+			padding: 0 0 0 70px;
+		}
+		.comment {
+			width: 100%;
+			height: 54px;
+			resize: none;
+			border: 1px solid darken(@border-color, 10%);
+			outline: none;
+			padding: 10px;
+		}
+		.button {
+			margin-bottom: 0;
+			margin-top: 10px;
+			float: right;
+		}
+	}
+}
+
+.notification {
+	position: relative;
+	
+	.notification-link {
+		.absolute();
+	}
+	.toolbar {
+		padding-top: 20px;
+		.link {
+			position: relative;
+			z-index: 40;
+		}
+		
+	}
+	.content {
+		padding-right: 0;
+	}
+	
+	.notification-link-remove {
+		position: absolute;
+		top: 0px;
+		right: 0;
+		z-index: 22;
+		
+		height: 24px;
+		font-size: 12px;
+		
+		&:after {
+			position: absolute;
+			left: 0;
+			right: 0;
+			content: "F";
+			font-family: @font-icons;
+			font-size: 20px;
+			text-align: center;
+			line-height: 24px;
+			color: black;
+		}
+		
+		&:hover {
+			&:after {
+				color: @main-color;
+			}
+		}
+	}
+	
+	&.notification-type-game {
+		.author-image {
+			.rounded(2px);
+		}
+	}
+}
+
+.user-settings {
+	padding: 20px;
+	.section-title {
+		margin: 0;
+	}
+	.form-hint {
+		padding: 0;
+		margin-top: 0;
+		font-size: 12px;
+		color: lighten(@dark-color, 10%);
+	}
+	table {
+		margin-bottom: 20px;
+		border-bottom: 1px solid @border-color;
+		padding-bottom: 20px;
+		border-collapse:collapse;
+	}
+	
+	.field {
+		
+		&.premium {
+			.label label {
+				&:before {
+					margin-right: 5px;
+					content: 'g';
+					font-family: @font-icons;
+					color: @main-color;
+					font-size: 11px;
+					vertical-align: middle;
+				}
+			}
+		}
+		
+		.label, .input {
+			vertical-align: middle;
+			padding: 10px;
+		}
+		.label {
+			min-width: 150px;
+			font-size: 14px;
+		}
+		.input {
+			width: 100%;
+		}
+		
+		label {
+			display: block;
+		}
+		input {
+			display: block;
+			padding: 10px;
+			outline: none;
+			border: 1px solid lighten(@dark-color, 70%);
+			width: 100%;
+		}
+	}
+	
+	.settings-switch {
+		overflow: hidden;
+		.rounded(5px);
+		border: 1px solid @border-color;
+		float: left;
+		
+		.option {
+			float: left;
+			text-align: center;
+			padding: 8px 20px;
+			cursor: pointer;
+			border-right: 1px solid @border-color;
+			border-bottom: 3px solid darken(@border-color, 10%);
+			font-size: 12px;
+			
+			&:last-child {
+				border-right: 0;
+			}
+			
+			&.active {
+				color: white;
+				background: @main-color;
+				border-bottom-color: darken(@main-color, 10%);
+				
+			}
+			&:hover:not(.active) {
+				background: darken(@border-color, 3%);
+				border-bottom-color: darken(@border-color, 15%);
+			}
+		}
+	}
+}

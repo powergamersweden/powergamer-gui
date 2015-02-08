@@ -1,0 +1,294 @@
+
+.header {
+	width: 100%;
+	
+	&.header-main {
+		background: @dark-color;
+		
+		body.fixed-menu &{
+			height: 165px;
+			
+			.menu-main {
+				position: fixed;
+				top: 0;
+				z-index: 200;
+				width: 100%;
+			}
+		}
+		
+		body.fixed-menu-small &{
+			.menu-main {
+				.menu-link {
+					
+				}
+			}
+		}
+	}
+	
+	> .inner {
+		padding-top: 10px;
+		padding-bottom: 20px;
+		overflow: hidden;
+	}
+	
+	.left, .center {
+		float: left;
+	}
+	.right {
+		float: right;
+		margin-top: 38px;
+		margin-right: 20px;
+	}
+	
+	.logo {
+		@width : 270px;
+		@height: 135px;
+		width: @width*.75;
+		height: @height*.75;
+		background: transparent url('../images/logo-white.png') no-repeat;
+		background-size: 100%;
+		display: block;
+	}
+	
+	.icon-holder {
+		float: left;
+		.rounded-icon {
+			margin-right: 15px;
+		}
+	}
+	
+	.header-search {
+		position: relative;
+		
+		height: 36px;
+		float: left;
+		
+		input {
+			//.rounded(50px);
+			display: block;
+			border: none;
+			outline: none;
+			padding: 10px 20px;
+			font-family: @font-regular;
+			font-size: 12px;
+			.opacity(0.0);
+			
+			.transition();
+			
+			&:focus {
+				width: auto;
+			}
+		}
+		.input-holder-search {
+			
+			width: 36px;
+			height: 36px;
+			overflow: hidden;
+			.translate3d();
+			.rounded(50px);
+			.transition();
+			background: rgba(255,255,255,0.2);
+			position: relative;
+			
+			&:after {
+				position: absolute;
+				width: 36px;
+				height: 36px;
+				font-family: @font-icons;
+				content: "a";
+				color: white;
+				top: 0;
+				right: 0;
+				text-align: center;
+				line-height: 36px;
+				font-size: 18px;
+				cursor: pointer;
+			}
+			
+			&:hover {
+				width: 190px;
+				&:after {
+					color: @dark-color;
+				}
+				
+				input {
+					.opacity(1.0);
+				}
+			}
+		}
+	}
+}
+
+.rounded-icon {
+	float: left;
+	display: block;
+	width: 36px;
+	height: 36px;
+	overflow: hidden;
+	.translate3d();
+	.rounded(50px);
+	.transition();
+	background: rgba(255,255,255,0.2);
+	position: relative;
+	
+	&:after {
+		position: absolute;
+		width: 36px;
+		height: 36px;
+		font-family: @font-icons;
+		content: attr(data-icon);
+		color: white;
+		top: 0;
+		right: 0;
+		text-align: center;
+		line-height: 36px;
+		font-size: 18px;
+	}
+}
+
+.menu {
+	&.menu-main {
+		overflow: hidden;
+		background: @main-color;
+		height: 34px;
+		
+		.inner {
+			height: 34px;
+		}
+		
+		.menu-link {
+			color: white;
+			padding: 7px 20px;
+			text-decoration: none;
+			display: inline;
+			white-space: nowrap;
+			float: left;
+			border-bottom: 2px solid transparent;
+			.transition();
+			font-size: 14px;
+			
+			&:hover {
+				border-bottom: 2px solid white;
+			}
+		}
+		@media (max-width: @content-width-smallest){
+			.inner {
+				max-width: none; 
+			}
+			
+			.menu-link {
+				display: table-row;
+			}
+		}
+	}
+}
+
+.user-panel {
+	margin-top: 35px;
+	float: right;
+	.rounded(2px);
+	//background: rgba(0,0,0,0.2);
+	
+	.user-info {
+		//padding: 10px;
+		margin-bottom: 10px;
+	}
+	
+	.user-image {
+		.rounded(50%);
+		width: 40px;
+		height: 40px;
+		float: left;
+		margin-right: 10px;
+	}
+	
+	a.user-link[data-number] {
+		position: relative;
+		display: block;
+		float: left;
+		
+		&:after {
+			position: absolute;
+			top: -5px;
+			right: 5px;
+			content: attr(data-number);
+			color: white;
+			font-size: 11px;
+			width: 18px;
+			height: 18px;
+			line-height: 18px;
+			background: rgba(255,10,10,1.0);
+			text-align: center;
+			font-weight: normal;
+			z-index: 21;
+			.rounded(50%);
+		}
+		
+		&.notice {
+			.animation-bounce;
+		}
+	}
+	
+	.user-controlls {
+		width: 100%;
+		height: 40px;
+		
+		.user-controll {
+			position: relative;
+			width: 40px;
+			height: 40px;
+			.rounded(50%);	
+			margin: 0 10px 0 0;
+			padding: 0;
+			border: none;
+			border-right: 1px solid @border-color;
+			float: left;
+			
+			background: rgba(255,255,255,0.05);
+			cursor: pointer;
+			.transition();
+			outline: none;
+			
+			&:before {
+				.absolute();
+				content: attr(data-icon);
+				color: white;
+				font-size: 16px;
+				line-height: 40px;
+				text-align: center;
+				font-family: @font-icons;
+				font-weight: normal;
+			}
+			&.notice {
+				.animation-bounce;
+			}
+			&.notify {
+				&:after {
+					position: absolute;
+					top: -5px;
+					right: -5px;
+					content: attr(data-number);
+					color: white;
+					font-size: 11px;
+					width: 18px;
+					height: 18px;
+					line-height: 18px;
+					background: rgba(255,10,10,1.0);
+					text-align: center;
+					font-weight: normal;
+					z-index: 21;
+					.rounded(50%);
+				}
+			}
+			
+			&:last-child {
+				border-right: none;
+			}
+			&:hover {
+				background: rgba(255,255,255,0.1);
+			}
+			
+			
+		}
+	}
+}

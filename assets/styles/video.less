@@ -1,0 +1,91 @@
+.video-player {
+	width: 1050px;
+	height: 591px;
+	position: relative;
+	background: black;
+	cursor: pointer;
+	max-width: 100%;
+	
+	.video-player-placeholder {
+		.absolute();
+		z-index: 10;
+		background-size: cover;
+		background-position: center;
+		.rounded(2px);
+		max-width: 100%;
+	}
+	
+	.video-player-button-play {
+		@size : 76px;
+		
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 11;
+		width: @size;
+		height: @size;
+		margin-left: -@size/2;
+		margin-top: -@size/2;
+		background: rgba(255,255,255,0.9);
+		.rounded(50%);
+		.transition(150ms);
+		cursor: pointer;
+		
+		&:before {
+			.absolute();
+			content: "k";
+			line-height: @size;
+			padding-left: 4px;
+			font-family: @font-icons;
+			color: black;
+			font-size: @size*0.65;
+			text-align: center;
+		}
+		
+		&:hover {
+			.scale(1.1);
+			.box-shadow(0 0 10px rgba(0,0,0,0.2));
+			background: rgba(255,255,255,1.0);
+		}
+	}
+}
+.video-title {
+	font-size: 20px;
+	padding-top: 20px !important;
+	
+	a {
+		text-decoration: none;
+		color: white;
+		.transition();
+
+		&:hover {
+			color: @main-color;
+		}
+	
+	}
+}
+.video-comment-link {
+	font-size: 14px;
+	text-decoration: none;
+	color: rgba(255,255,255,0.7);
+	.transition();
+	
+	&:hover {
+		color: @main-color;
+	}
+	
+	&:before {
+		content: "G";
+		font-family: @font-icons;
+		padding-right: 10px;
+		vertical-align: sub;
+	}
+}
+.video-archive {
+	.inner {
+		display: flex;
+		@media (max-width: @content-width-small) {
+			display: block;
+		}
+	}
+}
