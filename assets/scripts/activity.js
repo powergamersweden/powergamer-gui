@@ -17,7 +17,6 @@ $(document).ready(function(){
         var link = $(this);
 		var activity = $(this).parents('.activity:first');
         
-		$('.activity-comments, .comment-form').hide();
 		var popup = activity.find('.activity-share');
         
         
@@ -30,11 +29,9 @@ $(document).ready(function(){
     
     function _showPopup (popup, link, callback) {
         var position = {
-            top: link.offset().top + link.outerHeight() - 5,
+            top: link.offset().top + link.outerHeight() - 10,
             left: link.offset().left - (popup.outerWidth() / 2) + (link.outerWidth() / 2)
         };
-        
-        console.log(position);
         
         window.setTimeout(function(){
             popup
@@ -49,7 +46,6 @@ $(document).ready(function(){
     }
 	
     $('body').on('click', function(e){
-        console.log($(e.target).closest('.activity-share').length)
         
         if ($('.activity-share.detach').length){
             if(!$(e.target).closest('.activity-share').length && !$(e.target).closest('.share-button').length){

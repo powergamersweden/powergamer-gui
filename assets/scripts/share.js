@@ -1,7 +1,14 @@
-function share(method){
-	_share({
+function share(method, url){
+    
+    var params = {
 		method : method
-	})
+	};
+    
+    if(url){
+        params.url = url;
+    }
+    
+	_share(params);
 }
 
 function _share(settings)

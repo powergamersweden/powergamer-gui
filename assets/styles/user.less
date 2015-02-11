@@ -134,17 +134,25 @@
 .activity {
 	padding: 20px;
 	border-bottom: 1px solid @border-color;
-	
-	.author-image {
-		width: 66px;
-		.rounded(50%);
-		float: left;
-	}
+
+    .author-image {
+        width: 66px;
+        .rounded(50%);
+        float: left;
+        margin: 0 20px 0 0;
+    }
+    
 	.content {
 		text-align: left;
 		padding-top: 0;
 		padding-right: 0;
-		
+        padding-left: 0;
+		position: relative;
+        
+        .inner-content {
+            padding-left: 86px;
+        }
+        
 		p {
 			text-align: left;
 		}
@@ -188,7 +196,8 @@
 		
 		.game-info {
 			background: white;
-			
+            margin-left: 77px;
+            
 			.game-about {
 				padding-top: 20px;
 				a.game-title {
@@ -202,6 +211,31 @@
 				}
 			}
 		}
+
+        @media (max-width: @content-width-mobile) {
+            .inner-content {
+                padding: 0;
+            }
+            .author {
+                padding: 12px 0;
+                .author-title {
+                    display: block;
+                    font-size: 16px;
+                }
+            }
+            .activity-date {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .activity-content {
+                margin-top: 20px;
+            }
+            .game-info {
+                margin-left: 0px;
+                margin-right: 0;
+            }
+        }
 	}
 	
 	.toolbar {
@@ -210,7 +244,7 @@
 		.link {
 			font-size: 10px;
 			text-decoration: none;
-			
+			float: left;
             
 			&:hover {
 				text-decoration: underline;
@@ -221,6 +255,20 @@
 		}
         .activity-remove-link {
             margin-left: 10px;
+        }
+        
+        @media (max-width: @content-width-mobile) {
+            .link {
+                .button;
+                padding: 5px 15px;
+                font-size: 10px;
+                border: none;
+                background: @border-color;
+                color: @dark-color;
+            }
+            .activity-remove-link {
+                margin-left: 10px;
+            }
         }
         
 	}
@@ -290,8 +338,8 @@
             position: absolute;
             z-index: 11;
             width: 150px;
-            background: rgba(221, 221, 221, 0.70);
-            .rounded(2px);
+            background: rgba(221, 221, 221, 0.80);
+            .rounded(3px);
             .inner-shadow(0px, 2px, 1.0);
             
             .share-box {
@@ -311,13 +359,13 @@
             }
             
             &:after {
-                @size : 16px;
+                @size : 10px;
                 position: absolute;
                 bottom: 100%;
                 left: 50%;
                 margin-left: -@size;
                 border: @size solid transparent;
-                border-bottom-color: rgba(221, 221, 221, 0.70);
+                border-bottom-color: rgba(221, 221, 221, 0.80);
                 border-top-width: 0;
                 width: @size;
                 height: @size;
