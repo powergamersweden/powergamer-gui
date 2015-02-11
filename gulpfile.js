@@ -6,10 +6,11 @@ ProjectHelper.setup({
 	sourcePath : 'assets/',
 	componentsPath : 'assets/components/',
 	mainLessFile : 'main.less',
-	buildPath : '/Users/ridewing/Documents/produktioner/powergamer/deploy/public/themes/powergamer/assets/build/'
+	buildPath : '/Users/nicklasridewing/Documents/private/powergamer/public/themes/powergamer/assets/build/'
 });
 
 ProjectHelper.registerComponent('knockout');
+ProjectHelper.registerComponent('history.js', 'scripts/uncompressed/history.adapter.native.js');
 ProjectHelper.registerComponent('jquery');
 //ProjectHelper.registerComponent('jquery-ui', 'jquery-ui.js');
 ProjectHelper.registerComponent('jquery.cookie', 'jquery.cookie.js');

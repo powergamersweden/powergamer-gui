@@ -1,10 +1,10 @@
 {
-  "name": "Videoplayer",
+  "name": "powergamer-gui",
   "version": "0.0.1",
   "authors": [
     "Nicklas Ridewing <nicklas@ridewing.se>"
   ],
-  "description": "Videoplayer js",
+  "description": "Powergamer GUI",
   "license": "MIT",
   "homepage": "http://ridewing.se",
   "ignore": [
@@ -24,6 +24,7 @@
     "fastclick": "ftlabs/fastclick#~1.0.3",
     "sweetalert": "~0.3.2",
     "html5shiv": "~3.7.2",
-    "swiper": "~2.7.0"
+    "swiper": "~2.7.0",
+    "history.js": "browserstate/history.js#~1.8.0"
   }
 }
