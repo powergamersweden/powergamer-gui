@@ -36,6 +36,10 @@
 	.menu {
 		padding-bottom: 100px;
 		
+        @media (max-width: @content-width-small) {
+            padding-bottom: 0;
+        }
+        
 		a {
 			display: block;
 			padding: 10px 20px;
@@ -134,6 +138,10 @@
 .activity {
 	padding: 20px;
 	border-bottom: 1px solid @border-color;
+    
+    @media (max-width: @content-width-smallest) {
+        padding: 20px 0;
+    }
 
     .author-image {
         width: 66px;
@@ -212,7 +220,7 @@
 			}
 		}
 
-        @media (max-width: @content-width-mobile) {
+        @media (max-width: @content-width-smallest) {
             .inner-content {
                 padding: 0;
             }
@@ -257,7 +265,7 @@
             margin-left: 10px;
         }
         
-        @media (max-width: @content-width-mobile) {
+        @media (max-width: @content-width-smallest) {
             .link {
                 .button;
                 padding: 5px 15px;
@@ -265,6 +273,15 @@
                 border: none;
                 background: @border-color;
                 color: @dark-color;
+                
+                &:hover {
+                    background: @border-color;
+                    color: @dark-color;
+                }
+                &:active {
+                    background: rgba(0,0,0,0.2);
+                    color: @dark-color;
+                }
             }
             .activity-remove-link {
                 margin-left: 10px;
@@ -280,6 +297,10 @@
 		margin: 20px 0 0 0;
 		list-style: none;
 		background: @border-color;
+        
+        @media (max-width: @content-width-smallest) {
+            margin: 0;
+        }
 		
 		.author-image {
 			width: 50px;
@@ -324,6 +345,7 @@
 		margin: 20px 0 0 0;
 		list-style: none;
 		background: @border-color;
+        .box-shadow(0px 1px 1px rgba(0,0,0,0.2));
         
         .button-share {
             width: 23% !important;

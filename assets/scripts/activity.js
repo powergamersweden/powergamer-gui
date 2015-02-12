@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	var ajax = Ajax();
 	
-	$('.activity-comment-link').on('click', function(e){
+    $('.activity-comment-link').on('click', function(e){
 		e.preventDefault();
 		
 		var activity = $(this).parents('.activity:first');
@@ -26,6 +26,54 @@ $(document).ready(function(){
         
         
 	})
+    
+    $('body').on('click', '.activity-remove-link', function(e){
+        
+        var activity = $(this).parents('.activity:first');
+        e.preventDefault();
+        
+        swal({
+            title: "Är du säker?",
+            text: "Om du tar bort ditt inlägg försvinner även alla kommentarer!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Ja, ta bort!',
+            cancelButtonText: "Nej, avbryt!",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function(isConfirm){
+            if (isConfirm) {
+                var args = {activityId : activity.data('id'), userId : activity.data('user')};
+                ajax.controller('user', 'removeActivity', args, function(success){
+                    
+                    if(success){
+                        swal({
+                            title : "Borta!",
+                            text : "Nu är ditt inlägg borttaget",
+                            timer: 2000,
+                            type : "success"
+                        });
+                        
+                        activity
+                            .hide()
+                            .remove();
+                    } else {
+                        _somethingWrong();
+                    }
+                })
+            }
+        });
+    })
+    
+    function _somethingWrong(){
+        swal({
+            title : "Ojdå!",
+            text : "Nu gick det inte riktigt som tänkt, försök gärna igen!",
+            type : "error"
+        });
+    }
     
     function _showPopup (popup, link, callback) {
         var position = {
